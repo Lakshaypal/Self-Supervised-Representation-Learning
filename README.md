@@ -1,4 +1,4 @@
-# Self-Supervised Visual Representations
+# Self-Supervised Representation Learning
 
 Educational PyTorch implementations of **SimCLR**, **masked autoencoding (MAE)** and **MoCo v2**, with image pretraining followed by frozen-backbone linear-probe evaluation.
 
@@ -20,8 +20,8 @@ SimCLR uses a 128-dimensional projection head, batch size 32 and temperature 0.0
 Use a Python version supported by your selected PyTorch/torchvision builds; Python 3.10 or 3.11 is a practical starting point. Install a mutually compatible PyTorch/torchvision pair for your hardware.
 
 ```sh
-git clone https://github.com/Lakshaypal/self-supervised-visual-representations.git
-cd self-supervised-visual-representations
+git clone https://github.com/Lakshaypal/Self-Supervised-Representation-Learning.git
+cd Self-Supervised-Representation-Learning
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
