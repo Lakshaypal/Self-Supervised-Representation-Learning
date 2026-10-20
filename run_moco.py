@@ -22,7 +22,7 @@ from sklearn.metrics import f1_score
 
 # --- Global Configuration Variables ---
 device = None
-BASE_DATA_PATH = '/Users/laksh/Documents/aims_dtu_ssl_project/data/ssl_dataset' # Update if necessary
+BASE_DATA_PATH = os.environ.get('SSL_DATA_PATH', os.path.join(os.path.dirname(__file__), 'data', 'ssl_dataset')) # Update if necessary
 TRAIN_FOLDER_PREFIX = "train.X"
 VAL_FOLDER_NAME = "val.X"
 LABELS_JSON_NAME = "Labels.json"
@@ -215,6 +215,7 @@ class LinearClassifier(nn.Module):
         self.classifier = nn.Linear(backbone_out_features, num_classes_local)
 
     def forward(self, x):
+        self.backbone.eval()
         with torch.no_grad():
             features = self.adaptive_pool(self.backbone(x))
             features = torch.flatten(features, 1)
